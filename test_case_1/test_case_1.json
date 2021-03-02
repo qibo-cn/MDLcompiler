@@ -1,0 +1,79 @@
+{
+  "projectName": "snn_digit",
+  "version": "0.0.1",
+  "target": "darwin2",
+  "netDepth": 5,
+  "delayType": [
+    0,
+    0
+  ],
+  "leakSign": -1,
+  "neuronGroups": [
+    {
+      "layerName": "input_spike",
+      "neuronSize": 300
+    },
+    {
+      "layerName": "input",
+      "neuronSize": 300,
+      "neuronType": "IF",
+      "leakMode": 0,
+      "leakValue": 0,
+      "resetMode": 0,
+      "vThreshold": 1
+    },
+    {
+      "layerName": "fc1",
+      "neuronSize": 400,
+      "neuronType": "IF",
+      "leakMode": 0,
+      "leakValue": 0,
+      "resetMode": 0,
+      "vThreshold": 4022
+    },
+    {
+      "layerName": "fc2",
+      "neuronSize": 400,
+      "neuronType": "IF",
+      "leakMode": 0,
+      "leakValue": 0,
+      "resetMode": 0,
+      "vThreshold": 179
+    },
+    {
+      "layerName": "fc3",
+      "neuronSize": 3,
+      "neuronType": "IF",
+      "leakMode": 0,
+      "leakValue": 0,
+      "resetMode": 0,
+      "vThreshold": 1831
+    }
+  ],
+  "connectConfig": [
+    {
+      "name": "input_spike_to_input",
+      "src": "input_spike",
+      "dst": "input",
+      "synapses": "connections_to_input_spike_forward.pickle"
+    },
+    {
+      "name": "input_to_fc1",
+      "src": "input",
+      "dst": "fc1",
+      "synapses": "connections_input_to_fc1.pickle"
+    },
+    {
+      "name": "fc1_to_fc2",
+      "src": "fc1",
+      "dst": "fc2",
+      "synapses": "connections_fc1_to_fc2.pickle"
+    },
+    {
+      "name": "fc2_to_fc3",
+      "src": "fc2",
+      "dst": "fc3",
+      "synapses": "connections_fc2_to_fc3.pickle"
+    }
+  ]
+}
